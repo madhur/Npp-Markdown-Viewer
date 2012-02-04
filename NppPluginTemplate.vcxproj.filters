@@ -13,6 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
     </Filter>
+    <Filter Include="Header Files\Docking">
+      <UniqueIdentifier>{51450f88-db13-4568-a95d-d87f5edf8969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Docking">
+      <UniqueIdentifier>{4d455e9e-3e80-4116-b08d-0e00a25206e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Markdown">
+      <UniqueIdentifier>{11736418-e8f7-4b85-842b-e387af0c4321}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Markdown">
+      <UniqueIdentifier>{5a9a8355-71f7-4c45-b4cd-cfd0a044d4ce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NppPluginDemo.cpp">
@@ -20,6 +32,33 @@
     </ClCompile>
     <ClCompile Include="PluginDefinition.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DockingFeature\StaticDialog.cpp">
+      <Filter>Source Files\Docking</Filter>
+    </ClCompile>
+    <ClCompile Include="DockingFeature\GoToLineDlg.cpp">
+      <Filter>Source Files\Docking</Filter>
+    </ClCompile>
+    <ClCompile Include="Markdown\autolink.c">
+      <Filter>Source Files\Markdown</Filter>
+    </ClCompile>
+    <ClCompile Include="Markdown\buffer.c">
+      <Filter>Source Files\Markdown</Filter>
+    </ClCompile>
+    <ClCompile Include="Markdown\houdini_href_e.c">
+      <Filter>Source Files\Markdown</Filter>
+    </ClCompile>
+    <ClCompile Include="Markdown\houdini_html_e.c">
+      <Filter>Source Files\Markdown</Filter>
+    </ClCompile>
+    <ClCompile Include="Markdown\html.c">
+      <Filter>Source Files\Markdown</Filter>
+    </ClCompile>
+    <ClCompile Include="Markdown\markdown.c">
+      <Filter>Source Files\Markdown</Filter>
+    </ClCompile>
+    <ClCompile Include="Markdown\stack.c">
+      <Filter>Source Files\Markdown</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -35,11 +74,52 @@
     <ClInclude Include="PluginInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DockingFeature\resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Scintilla.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DockingFeature\Docking.h">
+      <Filter>Header Files\Docking</Filter>
+    </ClInclude>
+    <ClInclude Include="DockingFeature\DockingDlgInterface.h">
+      <Filter>Header Files\Docking</Filter>
+    </ClInclude>
+    <ClInclude Include="DockingFeature\dockingResource.h">
+      <Filter>Header Files\Docking</Filter>
+    </ClInclude>
+    <ClInclude Include="DockingFeature\GoToLineDlg.h">
+      <Filter>Header Files\Docking</Filter>
+    </ClInclude>
+    <ClInclude Include="DockingFeature\resource.h">
+      <Filter>Header Files\Docking</Filter>
+    </ClInclude>
+    <ClInclude Include="DockingFeature\Window.h">
+      <Filter>Header Files\Docking</Filter>
+    </ClInclude>
+    <ClInclude Include="DockingFeature\StaticDialog.h">
+      <Filter>Header Files\Docking</Filter>
+    </ClInclude>
+    <ClInclude Include="Markdown\buffer.h">
+      <Filter>Header Files\Markdown</Filter>
+    </ClInclude>
+    <ClInclude Include="Markdown\houdini.h">
+      <Filter>Header Files\Markdown</Filter>
+    </ClInclude>
+    <ClInclude Include="Markdown\html.h">
+      <Filter>Header Files\Markdown</Filter>
+    </ClInclude>
+    <ClInclude Include="Markdown\html_blocks.h">
+      <Filter>Header Files\Markdown</Filter>
+    </ClInclude>
+    <ClInclude Include="Markdown\markdown.h">
+      <Filter>Header Files\Markdown</Filter>
+    </ClInclude>
+    <ClInclude Include="Markdown\stack.h">
+      <Filter>Header Files\Markdown</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DockingFeature\goLine.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

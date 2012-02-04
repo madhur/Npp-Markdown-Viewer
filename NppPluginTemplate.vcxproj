@@ -20,8 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1590D7CD-7D3A-4AB7-A355-EE02F7FB987D}</ProjectGuid>
-    <RootNamespace>NppPluginTemplate</RootNamespace>
+    <RootNamespace>NppMarkdownView</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <ProjectName>NppMarkdownView</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Unicode Debug|Win32'" Label="Configuration">
@@ -184,16 +185,40 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DockingFeature\GoToLineDlg.cpp" />
+    <ClCompile Include="DockingFeature\StaticDialog.cpp" />
+    <ClCompile Include="Markdown\autolink.c" />
+    <ClCompile Include="Markdown\buffer.c" />
+    <ClCompile Include="Markdown\houdini_href_e.c" />
+    <ClCompile Include="Markdown\houdini_html_e.c" />
+    <ClCompile Include="Markdown\html.c" />
+    <ClCompile Include="Markdown\markdown.c" />
+    <ClCompile Include="Markdown\stack.c" />
     <ClCompile Include="NppPluginDemo.cpp" />
     <ClCompile Include="PluginDefinition.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DockingFeature\Docking.h" />
+    <ClInclude Include="DockingFeature\DockingDlgInterface.h" />
+    <ClInclude Include="DockingFeature\dockingResource.h" />
+    <ClInclude Include="DockingFeature\GoToLineDlg.h" />
+    <ClInclude Include="DockingFeature\StaticDialog.h" />
+    <ClInclude Include="DockingFeature\Window.h" />
+    <ClInclude Include="Markdown\buffer.h" />
+    <ClInclude Include="Markdown\houdini.h" />
+    <ClInclude Include="Markdown\html.h" />
+    <ClInclude Include="Markdown\html_blocks.h" />
+    <ClInclude Include="Markdown\markdown.h" />
+    <ClInclude Include="Markdown\stack.h" />
     <ClInclude Include="menuCmdID.h" />
     <ClInclude Include="Notepad_plus_msgs.h" />
     <ClInclude Include="PluginDefinition.h" />
     <ClInclude Include="PluginInterface.h" />
     <ClInclude Include="DockingFeature\resource.h" />
     <ClInclude Include="Scintilla.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="DockingFeature\goLine.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

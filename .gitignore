@@ -29,6 +29,9 @@ obj/
 [Dd]ebug*/
 [Rr]elease*/
 Ankh.NoLoad
+ANSI Debug/
+Unicode Debug/
+Unicode Realeas/
 
 #Tooling
 _ReSharper*/
