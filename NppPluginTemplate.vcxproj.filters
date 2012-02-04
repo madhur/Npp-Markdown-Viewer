@@ -36,9 +36,6 @@
     <ClCompile Include="DockingFeature\StaticDialog.cpp">
       <Filter>Source Files\Docking</Filter>
     </ClCompile>
-    <ClCompile Include="DockingFeature\GoToLineDlg.cpp">
-      <Filter>Source Files\Docking</Filter>
-    </ClCompile>
     <ClCompile Include="Markdown\autolink.c">
       <Filter>Source Files\Markdown</Filter>
     </ClCompile>
@@ -59,6 +56,15 @@
     </ClCompile>
     <ClCompile Include="Markdown\stack.c">
       <Filter>Source Files\Markdown</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UrlCTRL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MarkDownViewDialog.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -84,9 +90,6 @@
       <Filter>Header Files\Docking</Filter>
     </ClInclude>
     <ClInclude Include="DockingFeature\dockingResource.h">
-      <Filter>Header Files\Docking</Filter>
-    </ClInclude>
-    <ClInclude Include="DockingFeature\GoToLineDlg.h">
       <Filter>Header Files\Docking</Filter>
     </ClInclude>
     <ClInclude Include="DockingFeature\resource.h">
@@ -116,10 +119,24 @@
     <ClInclude Include="Markdown\stack.h">
       <Filter>Header Files\Markdown</Filter>
     </ClInclude>
+    <ClInclude Include="HelpDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UrlCTRL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MarkDownViewDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="DockingFeature\goLine.rc">
+    <ResourceCompile Include="MarkdownDialog.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MarkdownDialog.h">
+      <Filter>Header Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

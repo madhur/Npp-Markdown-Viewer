@@ -185,8 +185,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DockingFeature\GoToLineDlg.cpp" />
     <ClCompile Include="DockingFeature\StaticDialog.cpp" />
+    <ClCompile Include="HelpDialog.cpp" />
+    <ClCompile Include="MarkDownViewDialog.cpp" />
     <ClCompile Include="Markdown\autolink.c" />
     <ClCompile Include="Markdown\buffer.c" />
     <ClCompile Include="Markdown\houdini_href_e.c" />
@@ -196,14 +197,16 @@
     <ClCompile Include="Markdown\stack.c" />
     <ClCompile Include="NppPluginDemo.cpp" />
     <ClCompile Include="PluginDefinition.cpp" />
+    <ClCompile Include="UrlCTRL.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DockingFeature\Docking.h" />
     <ClInclude Include="DockingFeature\DockingDlgInterface.h" />
     <ClInclude Include="DockingFeature\dockingResource.h" />
-    <ClInclude Include="DockingFeature\GoToLineDlg.h" />
     <ClInclude Include="DockingFeature\StaticDialog.h" />
     <ClInclude Include="DockingFeature\Window.h" />
+    <ClInclude Include="HelpDialog.h" />
+    <ClInclude Include="MarkDownViewDialog.h" />
     <ClInclude Include="Markdown\buffer.h" />
     <ClInclude Include="Markdown\houdini.h" />
     <ClInclude Include="Markdown\html.h" />
@@ -216,9 +219,13 @@
     <ClInclude Include="PluginInterface.h" />
     <ClInclude Include="DockingFeature\resource.h" />
     <ClInclude Include="Scintilla.h" />
+    <ClInclude Include="UrlCTRL.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="DockingFeature\goLine.rc" />
+    <ResourceCompile Include="MarkdownDialog.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MarkdownDialog.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

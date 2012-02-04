@@ -17,7 +17,11 @@
 
 #include "PluginDefinition.h"
 #include "menuCmdID.h"
+#include "MarkdownDialog.h"
+#include "HelpDialog.h"
 
+HANDLE g_hMod;
+HelpDlg			helpDlg;
 //
 // The plugin data that Notepad++ needs
 //
@@ -27,12 +31,13 @@ FuncItem funcItem[nbFunc];
 // The data of Notepad++ that you can use in your plugin commands
 //
 NppData nppData;
-
 //
 // Initialize your plugin data here
 // It will be called while plugin loading   
 void pluginInit(HANDLE hModule)
 {
+	g_hMod=hModule;
+	helpDlg.init((HINSTANCE)hModule, nppData);
 }
 
 //
@@ -58,8 +63,15 @@ void commandMenuInit()
     //            ShortcutKey *shortcut,          // optional. Define a shortcut to trigger this command
     //            bool check0nInit                // optional. Make this menu item be checked visually
     //            );
-    setCommand(0, TEXT("Hello Notepad++"), hello, NULL, false);
-    setCommand(1, TEXT("Hello (with dialog)"), helloDlg, NULL, false);
+
+	ShortcutKey *sk=new ShortcutKey();
+	sk->_isAlt=TRUE;
+	sk->_isCtrl=TRUE;
+	sk->_isShift=TRUE;
+	sk->_key=0x4A;
+
+    setCommand(0, TEXT("&View Markdown in HTML"), viewmarkdowninhtml, sk, false);
+    setCommand(1, TEXT("&About"), about, NULL, false);
 }
 
 //
@@ -93,24 +105,40 @@ bool setCommand(size_t index, TCHAR *cmdName, PFUNCPLUGINCMD pFunc, ShortcutKey 
 //----------------------------------------------//
 //-- STEP 4. DEFINE YOUR ASSOCIATED FUNCTIONS --//
 //----------------------------------------------//
-void hello()
+void viewmarkdowninhtml()
 {
-    // Open a new document
-    ::SendMessage(nppData._nppHandle, NPPM_MENUCOMMAND, 0, IDM_FILE_NEW);
+    // GetShortCuts(nppData._nppHandle);
+	pCurHexEdit->doDialog(TRUE);
+	DialogUpdate();
+	setMenu();
 
-    // Get the current scintilla
-    int which = -1;
-    ::SendMessage(nppData._nppHandle, NPPM_GETCURRENTSCINTILLA, 0, (LPARAM)&which);
-    if (which == -1)
-        return;
-    HWND curScintilla = (which == 0)?nppData._scintillaMainHandle:nppData._scintillaSecondHandle;
-
-    // Say hello now :
-    // Scintilla control has no Unicode mode, so we use (char *) here
-    ::SendMessage(curScintilla, SCI_SETTEXT, 0, (LPARAM)"Hello, Notepad++!");
 }
 
-void helloDlg()
+
+
+INT_PTR CALLBACK abtDlgProc(HWND hwndDlg,UINT uMsg,WPARAM wParam, LPARAM lParam)
 {
-    ::MessageBox(NULL, TEXT("Hello, Notepad++!"), TEXT("Notepad++ Plugin Template"), MB_OK);
+	switch(uMsg)
+	{
+	case WM_INITDIALOG:
+		
+		return TRUE;
+	case WM_COMMAND:
+		switch(LOWORD(wParam))
+		{
+		case IDOK:
+			EndDialog(hwndDlg,wParam);
+			return TRUE;
+		}
+	}
+	return FALSE;
+}
+
+void about()
+{
+	
+   // HWND userDialog=::CreateDialog((HINSTANCE)g_hMod,MAKEINTRESOURCE(IDD_HELP_DLG),nppData._nppHandle,abtDlgProc);
+	// int error=::GetLastError();
+	helpDlg.doDialog();
+	
 }
