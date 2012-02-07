@@ -39,11 +39,21 @@ const TCHAR NPP_PLUGIN_NAME[] = TEXT("Markdown Viewer");
 const int nbFunc = 2;
 
 
+typedef struct tMarkProp
+{	
+	TCHAR				szFileName[MAX_PATH];	// identifier of struct	
+	BOOL				isModified;				// stores the modification state
+	BOOL				isVisible;				// is current file visible						
+} tMarkProp;
+
+
 //
 // Initialization of your plugin data
 // It will be called while plugin loading
 //
-void pluginInit(HANDLE hModule);
+void pluginInit(HANDLE hModule, NppData nppData);
+
+LRESULT CALLBACK SubWndProcNotepad(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 
 //
 // Cleaning of your plugin
@@ -66,7 +76,7 @@ void commandMenuCleanUp();
 //
 bool setCommand(size_t index, TCHAR *cmdName, PFUNCPLUGINCMD pFunc, ShortcutKey *sk = NULL, bool check0nInit = false);
 
-
+void ActivateWindow(void);
 //
 // Your plugin command functions
 //

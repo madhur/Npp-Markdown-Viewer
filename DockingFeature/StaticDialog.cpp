@@ -55,7 +55,7 @@ HGLOBAL StaticDialog::makeRTLResource(int dialogID, DLGTEMPLATE **ppMyDlgTemplat
 	return hMyDlgTemplate;
 }
 
-void StaticDialog::create(int dialogID, bool isRTL)
+void StaticDialog::create(int dialogID, bool isRTL, bool isModeles)
 {
 	if (isRTL)
 	{
@@ -66,13 +66,18 @@ void StaticDialog::create(int dialogID, bool isRTL)
 	}
 	else
 		_hSelf = ::CreateDialogParam(_hInst, MAKEINTRESOURCE(dialogID), _hParent, (DLGPROC)dlgProc, (LPARAM)this);
+	//int i=GetLastError();
 
 	if (!_hSelf)
 	{
+		//systemMessage(_T("StaticDialog"));
 		return;
 	}
 
-	::SendMessage(_hParent, NPPM_MODELESSDIALOG, MODELESSDIALOGADD, (WPARAM)_hSelf);
+	if (isModeles) {
+		_isModeles = isModeles;
+		::SendMessage(_hParent, NPPM_MODELESSDIALOG, MODELESSDIALOGADD, (WPARAM)_hSelf);
+	}
 }
 
 BOOL CALLBACK StaticDialog::dlgProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) 
@@ -81,21 +86,36 @@ BOOL CALLBACK StaticDialog::dlgProc(HWND hwnd, UINT message, WPARAM wParam, LPAR
 	{
 		case WM_INITDIALOG :
 		{
+			// Get the additional init data
 			StaticDialog *pStaticDlg = (StaticDialog *)(lParam);
+			
+			// Store the handle in the object
 			pStaticDlg->_hSelf = hwnd;
+
+
 			::SetWindowLongPtr(hwnd, GWL_USERDATA, (long)lParam);
+
+			// Store the co-ordinates in the object
 			::GetWindowRect(hwnd, &(pStaticDlg->_rc));
+
+			// Forward the message for further processing
             pStaticDlg->run_dlgProc(message, wParam, lParam);
 			
+			// TRUE if it processed the message
 			return TRUE;
 		}
 
 		default :
 		{
+			// Retrieve the user data
 			StaticDialog *pStaticDlg = (StaticDialog *)(::GetWindowLongPtr(hwnd, GWL_USERDATA));
 			if (!pStaticDlg)
 				return FALSE;
+			
+			// Send the message for further processing
 			return pStaticDlg->run_dlgProc(message, wParam, lParam);
+
+			// return FALSE if it processed the message
 		}
 	}
 }

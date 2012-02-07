@@ -1,0 +1,6 @@
+LIBRARY CWEBPAGE
+EXPORTS
+	EmbedBrowserObject
+	UnEmbedBrowserObject
+	DisplayHTMLStr
+	DisplayHTMLPage

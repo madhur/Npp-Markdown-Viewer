@@ -18,127 +18,18 @@
 #include "PluginDefinition.h"
 #include "menuCmdID.h"
 #include "MarkdownDialog.h"
+#include "MarkDownViewDialog.h"
 #include "HelpDialog.h"
 
 HANDLE g_hMod;
 HelpDlg			helpDlg;
+MarkDownViewDialog markDialog;
 //
 // The plugin data that Notepad++ needs
 //
 FuncItem funcItem[nbFunc];
-
+//NppData nppData;
 //
 // The data of Notepad++ that you can use in your plugin commands
 //
-NppData nppData;
-//
-// Initialize your plugin data here
-// It will be called while plugin loading   
-void pluginInit(HANDLE hModule)
-{
-	g_hMod=hModule;
-	helpDlg.init((HINSTANCE)hModule, nppData);
-}
 
-//
-// Here you can do the clean up, save the parameters (if any) for the next session
-//
-void pluginCleanUp()
-{
-}
-
-//
-// Initialization of your plugin commands
-// You should fill your plugins commands here
-void commandMenuInit()
-{
-
-    //--------------------------------------------//
-    //-- STEP 3. CUSTOMIZE YOUR PLUGIN COMMANDS --//
-    //--------------------------------------------//
-    // with function :
-    // setCommand(int index,                      // zero based number to indicate the order of command
-    //            TCHAR *commandName,             // the command name that you want to see in plugin menu
-    //            PFUNCPLUGINCMD functionPointer, // the symbol of function (function pointer) associated with this command. The body should be defined below. See Step 4.
-    //            ShortcutKey *shortcut,          // optional. Define a shortcut to trigger this command
-    //            bool check0nInit                // optional. Make this menu item be checked visually
-    //            );
-
-	ShortcutKey *sk=new ShortcutKey();
-	sk->_isAlt=TRUE;
-	sk->_isCtrl=TRUE;
-	sk->_isShift=TRUE;
-	sk->_key=0x4A;
-
-    setCommand(0, TEXT("&View Markdown in HTML"), viewmarkdowninhtml, sk, false);
-    setCommand(1, TEXT("&About"), about, NULL, false);
-}
-
-//
-// Here you can do the clean up (especially for the shortcut)
-//
-void commandMenuCleanUp()
-{
-	// Don't forget to deallocate your shortcut here
-}
-
-
-//
-// This function help you to initialize your plugin commands
-//
-bool setCommand(size_t index, TCHAR *cmdName, PFUNCPLUGINCMD pFunc, ShortcutKey *sk, bool check0nInit) 
-{
-    if (index >= nbFunc)
-        return false;
-
-    if (!pFunc)
-        return false;
-
-    lstrcpy(funcItem[index]._itemName, cmdName);
-    funcItem[index]._pFunc = pFunc;
-    funcItem[index]._init2Check = check0nInit;
-    funcItem[index]._pShKey = sk;
-
-    return true;
-}
-
-//----------------------------------------------//
-//-- STEP 4. DEFINE YOUR ASSOCIATED FUNCTIONS --//
-//----------------------------------------------//
-void viewmarkdowninhtml()
-{
-    // GetShortCuts(nppData._nppHandle);
-	pCurHexEdit->doDialog(TRUE);
-	DialogUpdate();
-	setMenu();
-
-}
-
-
-
-INT_PTR CALLBACK abtDlgProc(HWND hwndDlg,UINT uMsg,WPARAM wParam, LPARAM lParam)
-{
-	switch(uMsg)
-	{
-	case WM_INITDIALOG:
-		
-		return TRUE;
-	case WM_COMMAND:
-		switch(LOWORD(wParam))
-		{
-		case IDOK:
-			EndDialog(hwndDlg,wParam);
-			return TRUE;
-		}
-	}
-	return FALSE;
-}
-
-void about()
-{
-	
-   // HWND userDialog=::CreateDialog((HINSTANCE)g_hMod,MAKEINTRESOURCE(IDD_HELP_DLG),nppData._nppHandle,abtDlgProc);
-	// int error=::GetLastError();
-	helpDlg.doDialog();
-	
-}

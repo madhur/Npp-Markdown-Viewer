@@ -32,6 +32,10 @@ Ankh.NoLoad
 ANSI Debug/
 Unicode Debug/
 Unicode Realeas/
+UDebug/
+URelease/
+ADebug/
+ARelease/
 
 #Tooling
 _ReSharper*/

@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx</Extensions>
     </Filter>
-    <Filter Include="Header Files\Docking">
-      <UniqueIdentifier>{51450f88-db13-4568-a95d-d87f5edf8969}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Docking">
       <UniqueIdentifier>{4d455e9e-3e80-4116-b08d-0e00a25206e5}</UniqueIdentifier>
     </Filter>
@@ -25,14 +22,11 @@
     <Filter Include="Source Files\Markdown">
       <UniqueIdentifier>{5a9a8355-71f7-4c45-b4cd-cfd0a044d4ce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Common">
+      <UniqueIdentifier>{51450f88-db13-4568-a95d-d87f5edf8969}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="NppPluginDemo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PluginDefinition.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DockingFeature\StaticDialog.cpp">
       <Filter>Source Files\Docking</Filter>
     </ClCompile>
@@ -66,40 +60,34 @@
     <ClCompile Include="MarkDownViewDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NppMarkdownView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="menuCmdID.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Notepad_plus_msgs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PluginDefinition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PluginInterface.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Scintilla.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DockingFeature\Docking.h">
-      <Filter>Header Files\Docking</Filter>
+      <Filter>Header Files\Common</Filter>
     </ClInclude>
     <ClInclude Include="DockingFeature\DockingDlgInterface.h">
-      <Filter>Header Files\Docking</Filter>
+      <Filter>Header Files\Common</Filter>
     </ClInclude>
     <ClInclude Include="DockingFeature\dockingResource.h">
-      <Filter>Header Files\Docking</Filter>
+      <Filter>Header Files\Common</Filter>
     </ClInclude>
     <ClInclude Include="DockingFeature\resource.h">
-      <Filter>Header Files\Docking</Filter>
+      <Filter>Header Files\Common</Filter>
     </ClInclude>
     <ClInclude Include="DockingFeature\Window.h">
-      <Filter>Header Files\Docking</Filter>
+      <Filter>Header Files\Common</Filter>
     </ClInclude>
     <ClInclude Include="DockingFeature\StaticDialog.h">
-      <Filter>Header Files\Docking</Filter>
+      <Filter>Header Files\Common</Filter>
     </ClInclude>
     <ClInclude Include="Markdown\buffer.h">
       <Filter>Header Files\Markdown</Filter>
@@ -127,6 +115,18 @@
     </ClInclude>
     <ClInclude Include="MarkDownViewDialog.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cwebpage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scintilla.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Notepad_plus_msgs.h">
+      <Filter>Header Files\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="menuCmdID.h">
+      <Filter>Header Files\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

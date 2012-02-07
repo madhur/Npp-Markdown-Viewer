@@ -1,0 +1,37 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: DLL - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPA2.tmp" with contents
+[
+/nologo /MT /W3 /O2 /Ob2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "DLL_EXPORTS" /Fp"Release/DLL.pch" /YX /Fo"Release/" /Fd"Release/" /FD /section:Shared,rws /c 
+"C:\Code\CWebPage\DLL\dll.c"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPA2.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPA3.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /incremental:no /pdb:"Release/cwebpage.pdb" /machine:I386 /nodefaultlib /def:".\dll.def" /out:"Release/cwebpage.dll" /implib:"Release/cwebpage.lib" 
+.\Release\dll.obj
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSPA3.tmp"
+<h3>Output Window</h3>
+Compiling...
+Command line warning D4002 : ignoring unknown option '/section:Shared,rws'
+dll.c
+C:\Code\CWebPage\DLL\dll.c(231) : warning C4028: formal parameter 1 different from declaration
+C:\Code\CWebPage\DLL\dll.c(247) : warning C4028: formal parameter 1 different from declaration
+C:\Code\CWebPage\DLL\dll.c(248) : warning C4028: formal parameter 1 different from declaration
+Linking...
+   Creating library Release/cwebpage.lib and object Release/cwebpage.exp
+
+
+
+<h3>Results</h3>
+cwebpage.dll - 0 error(s), 4 warning(s)
+</pre>
+</body>
+</html>

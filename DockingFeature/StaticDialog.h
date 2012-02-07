@@ -48,7 +48,7 @@ public :
 			destroy();
 		}
 	};
-	virtual void create(int dialogID, bool isRTL = false);
+	virtual void create(int dialogID, bool isRTL = false, bool isModeles = true);
 
     virtual bool isCreated() const {
 		return (_hSelf != NULL);
@@ -67,6 +67,8 @@ protected :
 
     void alignWith(HWND handle, HWND handle2Align, PosAlign pos, POINT & point);
 	HGLOBAL makeRTLResource(int dialogID, DLGTEMPLATE **ppMyDlgTemplate);
+
+		bool		_isModeles;
 };
 
 #endif //STATIC_DIALOG_H
